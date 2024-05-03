@@ -4,10 +4,10 @@ require 'net/http'
 require 'json'
 require 'time'
 
-@GITHUB_SHA = ENV['GITHUB_SHA']
-@GITHUB_EVENT_PATH = ENV['GITHUB_EVENT_PATH']
-@GITHUB_TOKEN = ENV['GITHUB_TOKEN']
-@GITHUB_WORKSPACE = ENV['GITHUB_WORKSPACE']
+@GITHUB_SHA = ENV['GITHUB_SHA'] or raise 'GITHUB_SHA env var is not set'
+@GITHUB_EVENT_PATH = ENV['GITHUB_EVENT_PATH'] or raise 'GITHUB_EVENT_PATH env var is not set'
+@GITHUB_TOKEN = ENV['GITHUB_TOKEN'] or raise 'GITHUB_TOKEN env var is not set'
+@GITHUB_WORKSPACE = ENV['GITHUB_WORKSPACE'] or raise 'GITHUB_WORKSPACE env var is not set'
 
 @event = JSON.parse(File.read(ENV['GITHUB_EVENT_PATH']))
 @repository = @event['repository']
