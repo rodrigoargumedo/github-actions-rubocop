@@ -59,7 +59,7 @@ def update_check(id, conclusion, output)
 
   resp = http.patch(path, body.to_json, @headers)
 
-  resp.inspect
+  puts resp.to_hash
 
   raise resp
 end
