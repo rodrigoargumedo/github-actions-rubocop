@@ -59,7 +59,7 @@ def update_check(id, conclusion, output)
 
   resp = http.patch(path, body.to_json, @headers)
 
-  raise resp.inspect if resp.code.to_i >= 300
+  raise resp.to_json if resp.code.to_i >= 300
 end
 
 @annotation_levels = {
